@@ -1,8 +1,16 @@
 <div class="wrap">
-	<h1 class="wp-heading-inline">Plugins</h1> <a href="<?php echo wpqp_get_url('wpqp-novo-quiz'); ?>" class="page-title-action">Novo quiz</a>
+
+    <?php 
+    if(isset($errors)){
+        foreach($errors as $error){
+            echo "<div class='notice notice-error is-dismissible'><p>{$error['message']}</p></div>";
+        }
+    }
+    ?>
+
+	<h1 class="wp-heading-inline">Wordpress quiz plugin</h1> <a href="<?php echo wpqp_get_url('wpqp-novo-quiz'); ?>" class="page-title-action">Novo quiz</a>
 
 <form method="get">
-	<h2 class="screen-reader-text">Users list</h2>
     
     <table class="wp-list-table widefat fixed striped table-view-list users">
 	    <thead>
@@ -29,12 +37,11 @@
                 </th>
                 <td class=" has-row-actions column-primary" data-colname="title">
                     <strong><a href="#"><?php echo $quiz->title; ?></a></strong><br>
-                    <div class="row-actions visible">
-                        <span class="edit"><a href="#">Edit</a> | </span>
+                    <div class="row-actions visible" style="left: 0">
+                        <span class="edit"><a href="<?php echo wpqp_get_url('wpqp-editar-quiz'); ?>&id=<?php echo $quiz->id; ?>">Editar</a> | </span>
                         <!--span class="delete"><a class="submitdelete" href="#">Delete</a> | </span-->
-                        <span class="view"><a href="# ">View</a> | </span>
+                        <span class="view"><a href="<?php echo wpqp_get_url('wpqp-quiz-perguntas'); ?>&id=<?php echo $quiz->id; ?>">Perguntas</a></span>
                     </div>
-                    <button type="button" class="toggle-row"><span class="screen-reader-text">Show more details</span></button>
                 </td>
                 <td class="name column-name"><?php echo $quiz->description; ?></td>
             </tr>

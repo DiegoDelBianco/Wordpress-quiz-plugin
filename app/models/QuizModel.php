@@ -59,4 +59,23 @@ class WPQPQuizModel extends WPQPDefaultModel {
 
 		return true;
 	}
+
+	public function listQuestions(){
+
+		$quiz_id = $this->dados->id;
+
+		$res = $this->db->get_results(
+			$this->db->prepare("select * from ".WPQP_PREFIX."quiz_questions
+				where quiz_id = '%d'", $quiz_id));
+
+		
+		$questions = [];
+		foreach ($res as $key => $value) {
+			$questionsTemp = new WPQPQuizQuestionModel();
+			$questionsTemp->find($value->id);
+			$questions[] = $questionsTemp;
+		}
+
+		return $questions;
+	}
 }

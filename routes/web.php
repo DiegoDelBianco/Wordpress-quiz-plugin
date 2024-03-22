@@ -26,6 +26,26 @@ function wpqp_web() {
 		'wpqp_page_new_quiz' 	    	// callback
 	);
 
+	// Página para editar quiz
+	add_submenu_page( 
+		null, 							// parent_slug
+		'Editar quiz', 					// page_title
+		'Editar quiz', 					// menu_title
+		'publish_pages', 				// capability
+		'wpqp-editar-quiz', 	    	// menu_slug
+		'wpqp_page_edit_quiz' 	    	// callback
+	);
+
+	// Página para gerenciar perguntas do quiz
+	add_submenu_page( 
+		null, 							// parent_slug
+		'Perguntas', 					// page_title
+		'Perguntas', 					// menu_title
+		'publish_pages', 				// capability
+		'wpqp-quiz-perguntas', 	    	// menu_slug
+		'wpqp_page_quiz_questions' 	    // callback
+	);
+
 }
 
 add_action('admin_menu', 'wpqp_web');

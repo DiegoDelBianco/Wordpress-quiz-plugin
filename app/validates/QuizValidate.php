@@ -29,8 +29,8 @@ class WPQPQuizValidate {
     
             $this->titleValidate();
             $this->descriptionValidate();
-            $this->layoutHtmlValidate();
-            $this->layoutQuestionHtmlValidate();
+            //$this->layoutHtmlValidate();
+            //$this->layoutQuestionHtmlValidate();
             $this->finalLinkValidate();
     
             return count($this->errors) == 0;

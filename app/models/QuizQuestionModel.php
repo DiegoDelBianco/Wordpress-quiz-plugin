@@ -6,19 +6,17 @@ class WPQPQuizQuestionModel extends WPQPDefaultModel {
 
 	// use WPQPDefaultModel;
 
-	public $table = WPQP_PREFIX.'quiz_question';
+	public $table = WPQP_PREFIX.'quiz_questions';
 
-	public function store($title, $description, $layout_html, $layout_question_html, $final_link){
+	public function store($title, $description, $quiz_id){
 
 		$data = [
             'title' => $title,
             'description' => $description,
-            'layout_html' => $layout_html,
-            'layout_question_html' => $layout_question_html,
-            'final_link' => $final_link
+            'quiz_id' => $quiz_id
         ];
 
-		$validate = new QuizQuestionValidate($data);
+		$validate = new WPQPQuizQuestionValidate($data);
 		$validate->createValidate();
 
 		if(count($validate->errors) > 0){
@@ -42,9 +40,6 @@ class WPQPQuizQuestionModel extends WPQPDefaultModel {
 		$data = [
             'title' => $title,
             'description' => $description,
-            'layout_html' => $layout_html,
-            'layout_question_html' => $layout_question_html,
-            'final_link' => $final_link
         ];
 
 		$validate = new QuizQuestionValidate($data);
@@ -59,4 +54,22 @@ class WPQPQuizQuestionModel extends WPQPDefaultModel {
 
 		return true;
 	}
+
+    public function listOptions(){
+
+        $res = $this->db->get_results(
+            $this->db->prepare("select * from ".WPQP_PREFIX."quiz_question_options
+                where question_id = '%d'", $this->dados->id));
+
+        $options = [];
+
+        foreach($res as $option){
+            $optionTemp = new WPQPQuizQuestionOptionModel();
+            $optionTemp->find($option->id);
+
+            $options[] = $optionTemp;
+        }
+
+        return $options;
+    }
 }

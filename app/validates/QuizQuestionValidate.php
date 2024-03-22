@@ -18,9 +18,7 @@ class WPQPQuizQuestionValidate {
     
             $this->titleValidate();
             $this->descriptionValidate();
-            $this->layoutHtmlValidate();
-            $this->layoutQuestionHtmlValidate();
-            $this->finalLinkValidate();
+            $this->quizIdValidate();
     
             return count($this->errors) == 0;
         }
@@ -29,45 +27,37 @@ class WPQPQuizQuestionValidate {
     
             $this->titleValidate();
             $this->descriptionValidate();
-            $this->layoutHtmlValidate();
-            $this->layoutQuestionHtmlValidate();
-            $this->finalLinkValidate();
     
             return count($this->errors) == 0;
         }
 
         public function titleValidate(){
-            if(!isset($data['title']) or empty($data['title'])){
+            if(!isset($this->data['title']) or empty($this->data['title'])){
                 $this->errors[] = ['message' => 'Título é obrigatório', 'code' => 400, 'key' => 'TitleRequired'];
             }
             return count($this->errors) == 0;
         }
 
         public function descriptionValidate(){
-            if(!isset($data['description']) or empty($data['description'])){
+            if(!isset($this->data['description']) or empty($this->data['description'])){
                 $this->errors[] = ['message' => 'Descrição é obrigatória', 'code' => 400, 'key' => 'DescriptionRequired'];
             }
             return count($this->errors) == 0;
         }
 
-        public function layoutHtmlValidate(){
-            if(!isset($data['layout_html']) or empty($data['layout_html'])){
-                $this->errors[] = ['message' => 'Layout HTML é obrigatório', 'code' => 400, 'key' => 'LayoutHtmlRequired'];
+        public function quizIdValidate(){
+            if(!isset($this->data['quiz_id']) or empty($this->data['quiz_id'])){
+                $this->errors[] = ['message' => 'Ops algo deu errado.', 'code' => 400, 'key' => 'SomeError'];
             }
+
+            $quiz = new WPQPQuizModel();
+            $quiz->find($this->data['quiz_id']);
+
+            if(!isset($quiz->dados->id)){
+                $this->errors[] = ['message' => 'Quiz não encontrado', 'code' => 404, 'key' => 'QuizNotFound'];
+            }
+
             return count($this->errors) == 0;
         }
 
-        public function layoutQuestionHtmlValidate(){
-            if(!isset($data['layout_question_html']) or empty($data['layout_question_html'])){
-                $this->errors[] = ['message' => 'Layout de pergunta HTML é obrigatório', 'code' => 400, 'key' => 'LayoutQuestionHtmlRequired'];
-            }
-            return count($this->errors) == 0;
-        }
-
-        public function finalLinkValidate(){
-            if(!isset($data['final_link']) or empty($data['final_link'])){
-                $this->errors[] = ['message' => 'Link final é obrigatório', 'code' => 400, 'key' => 'FinalLinkRequired'];
-            }
-            return count($this->errors) == 0;
-        }
 }

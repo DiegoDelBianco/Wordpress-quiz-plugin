@@ -6,19 +6,16 @@ class WPQPQuizQuestionOptionModel extends WPQPDefaultModel {
 
 	// use WPQPDefaultModel;
 
-	public $table = WPQP_PREFIX.'quiz_question_option';
+	public $table = WPQP_PREFIX.'quiz_question_options';
 
-	public function store($title, $description, $layout_html, $layout_question_html, $final_link){
-
+	public function store($title, $question_id){
+        
 		$data = [
             'title' => $title,
-            'description' => $description,
-            'layout_html' => $layout_html,
-            'layout_question_html' => $layout_question_html,
-            'final_link' => $final_link
+            'question_id' => $question_id,
         ];
 
-		$validate = new QuizQuestionOptionValidate($data);
+		$validate = new WPQPQuizQuestionOptionValidate($data);
 		$validate->createValidate();
 
 		if(count($validate->errors) > 0){
@@ -33,7 +30,7 @@ class WPQPQuizQuestionOptionModel extends WPQPDefaultModel {
 		return true;
 	}
 
-	public function update($title, $description, $layout_html, $layout_question_html, $final_link, $id = null){
+	public function update($title){
 
 		if(!isset($this->dados->id)) $this->find($id);
 
@@ -41,13 +38,9 @@ class WPQPQuizQuestionOptionModel extends WPQPDefaultModel {
 
 		$data = [
             'title' => $title,
-            'description' => $description,
-            'layout_html' => $layout_html,
-            'layout_question_html' => $layout_question_html,
-            'final_link' => $final_link
         ];
 
-		$validate = new QuizQuestionOptionValidate($data);
+		$validate = new WPQPQuizQuestionOptionValidate($data);
 		$validate->updateValidate();
 
 		if(count($validate->errors) > 0){
