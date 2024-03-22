@@ -36,6 +36,16 @@ function wpqp_web() {
 		'wpqp_page_edit_quiz' 	    	// callback
 	);
 
+	// Página para editar quiz
+	add_submenu_page( 
+		null, 							// parent_slug
+		'Editar html', 					// page_title
+		'Editar html', 					// menu_title
+		'publish_pages', 				// capability
+		'wpqp-editar-html', 	    	// menu_slug
+		'wpqp_page_edit_html' 	    	// callback
+	);
+
 	// Página para gerenciar perguntas do quiz
 	add_submenu_page( 
 		null, 							// parent_slug

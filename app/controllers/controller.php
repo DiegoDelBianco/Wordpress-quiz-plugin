@@ -89,6 +89,40 @@ function wpqp_page_edit_quiz() {
         wpqp_view( "edit-quiz", ['errors' => $errors, 'quiz' => $quiz] );
 }
 
+function wpqp_page_edit_html() {
+    
+    $errors = [];
+
+    if( isset( $_POST['action'] ) && $_POST['action'] == 'updatehtml' ) {
+        
+        // sanitize the data
+        $layout_html =  $_POST['layout_html'] ;
+        $layout_question_html =   $_POST['layout_question_html'] ;
+        $layout_question_option_html =   $_POST['layout_question_option_html'] ;
+        
+
+        // create the new quiz
+        $quiz = new WPQPQuizModel();
+        $quiz->updateHtml( $layout_html, $layout_question_html, $layout_question_option_html, $_GET['id']);
+
+        $errors = $quiz->errors;
+
+        // redirect to the dashboard
+        if(count($errors) == 0){
+
+            // Redirect to homepage with js
+            echo "<script>window.location.href = '".wpqp_get_url('wpqp-home')."';</script>";
+            exit;
+        }
+    }
+
+    $quiz = new WPQPQuizModel();
+    $quiz->find( $_GET['id'] );
+
+    // Apresenta a página
+    wpqp_view( "edit-quiz-layout-html", ['errors' => $errors, 'quiz' => $quiz] );
+}
+
 function wpqp_page_quiz_questions() {
     
         $errors = [];

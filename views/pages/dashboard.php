@@ -39,6 +39,7 @@
                     <strong><a href="#"><?php echo $quiz->title; ?></a></strong><br>
                     <div class="row-actions visible" style="left: 0">
                         <span class="edit"><a href="<?php echo wpqp_get_url('wpqp-editar-quiz'); ?>&id=<?php echo $quiz->id; ?>">Editar</a> | </span>
+                        <span class="edit"><a href="<?php echo wpqp_get_url('wpqp-editar-html'); ?>&id=<?php echo $quiz->id; ?>">Editar HTML</a> | </span>
                         <!--span class="delete"><a class="submitdelete" href="#">Delete</a> | </span-->
                         <span class="view"><a href="<?php echo wpqp_get_url('wpqp-quiz-perguntas'); ?>&id=<?php echo $quiz->id; ?>">Perguntas</a></span>
                     </div>

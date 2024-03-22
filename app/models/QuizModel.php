@@ -60,6 +60,31 @@ class WPQPQuizModel extends WPQPDefaultModel {
 		return true;
 	}
 
+	public function updateHtml($layout_html, $layout_question_html, $layout_question_option_html, $id = null){
+
+		if(!isset($this->dados->id)) $this->find($id);
+
+		if($id == null and !isset($this->dados->id)) return false;
+
+		$data = [
+            'layout_html' => $layout_html,
+            'layout_question_html' => $layout_question_html,
+			'layout_question_option_html' => $layout_question_option_html,
+        ];
+
+		/*$validate = new WPQPQuizValidate($data);
+		$validate->updateValidate();*/
+
+		/*if(count($validate->errors) > 0){
+			$this->errors = $validate->errors;
+			return false;
+		}*/
+
+		$res = $this->db->update($this->table, $data, ['id' => $this->dados->id]);
+
+		return true;
+	}
+
 	public function listQuestions(){
 
 		$quiz_id = $this->dados->id;

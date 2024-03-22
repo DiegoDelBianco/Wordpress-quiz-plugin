@@ -13,6 +13,7 @@ $array_db['0.1.0'][WPQP_PREFIX.'quiz'] .= "`title` VARCHAR(255) DEFAULT NULL,";
 $array_db['0.1.0'][WPQP_PREFIX.'quiz'] .= "`description` TEXT DEFAULT NULL,";
 $array_db['0.1.0'][WPQP_PREFIX.'quiz'] .= "`layout_html` MEDIUMTEXT DEFAULT NULL,";
 $array_db['0.1.0'][WPQP_PREFIX.'quiz'] .= "`layout_question_html` MEDIUMTEXT DEFAULT NULL,";
+$array_db['0.1.0'][WPQP_PREFIX.'quiz'] .= "`layout_question_option_html` MEDIUMTEXT DEFAULT NULL,";
 $array_db['0.1.0'][WPQP_PREFIX.'quiz'] .= "`final_link` VARCHAR(255) DEFAULT NULL,";
 $array_db['0.1.0'][WPQP_PREFIX.'quiz'] .= "PRIMARY KEY (`id`)";
 

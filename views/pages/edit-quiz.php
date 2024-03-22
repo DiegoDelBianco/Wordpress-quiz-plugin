@@ -8,12 +8,12 @@
     }
     ?>
 
-    <h1 id="add-new-user">Novo quiz</h1>
+    <h1 id="add-new-user">Editar quiz</h1>
 
 
     <div id="ajax-response"></div>
 
-    <p>Crie um novo Quiz.</p>
+    <p>Edite o Quiz.</p>
     <form method="post" name="updatequiz" id="updatequiz" class="validate" novalidate="novalidate">
         <input name="action" type="hidden" value="updatequiz">
         <table class="form-table" role="presentation">
