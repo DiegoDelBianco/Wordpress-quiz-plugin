@@ -34,3 +34,6 @@ require(WPQP_DIR.'app/controllers/controller.php');         // Definiação das 
 
 require(WPQP_DIR.'routes/web.php');
 require(WPQP_DIR.'routes/ajax.php');
+
+// shortcode
+add_shortcode("wpqp", "wpqp_shortcode");
