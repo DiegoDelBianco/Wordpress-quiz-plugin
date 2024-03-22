@@ -6,7 +6,7 @@ class WPQPQuizQuestionOptionModel extends WPQPDefaultModel {
 
 	// use WPQPDefaultModel;
 
-	public $table = WPQP_PREFIX.'contas';
+	public $table = WPQP_PREFIX.'quiz_question_option';
 
 	public function store($title, $description, $layout_html, $layout_question_html, $final_link){
 

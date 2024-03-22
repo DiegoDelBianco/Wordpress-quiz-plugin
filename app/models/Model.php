@@ -8,11 +8,13 @@ class WPQPDefaultModel {
 	public $dados;
 	public $db;
     public $errors;
+    public $table;
 
-	function __construct(){
+	function __construct($table = null){
 		global $wpdb;
 		$this->db = $wpdb;
         $this->errors = [];
+        if($table) $this->table = $table;
 	}
 
 	/*public function store($data){
@@ -40,7 +42,7 @@ class WPQPDefaultModel {
 	}
 
 	public static function count_all(){
-		$instancia = new self();
+		$instancia = new static();
 
 		$res = $instancia->db->get_results($instancia->db->prepare("select * from ".$instancia->table));
 
@@ -48,8 +50,8 @@ class WPQPDefaultModel {
 	}
 
 	public static function all(){
-		$instancia = new self();
-
+		$instancia = new static();
+        
 		$res = $instancia->db->get_results("select * from " . $instancia->table);
 
 		return $res;

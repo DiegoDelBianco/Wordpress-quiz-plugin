@@ -26,3 +26,7 @@ function wpqp_view( $view, $args = [], $as_string = false){
 
     return true;
 }
+
+function wpqp_get_url( $page ) {
+	return admin_url()."admin.php?page=$page";
+}

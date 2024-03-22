@@ -17,14 +17,14 @@ function wpqp_web() {
 	);
 
 	// Página para adicionar quiz
-	/*add_submenu_page( 
+	add_submenu_page( 
 		null, 							// parent_slug
 		'Novo quiz', 					// page_title
 		'Novo quiz', 					// menu_title
 		'publish_pages', 				// capability
 		'wpqp-novo-quiz', 	    		// menu_slug
 		'wpqp_page_new_quiz' 	    	// callback
-	);*/
+	);
 
 }
 
