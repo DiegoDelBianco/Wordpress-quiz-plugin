@@ -1,1 +1,1 @@
-# Wordpress-quiz-plugin
+# Wordpres quiz plugin
