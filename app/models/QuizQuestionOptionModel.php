@@ -52,4 +52,15 @@ class WPQPQuizQuestionOptionModel extends WPQPDefaultModel {
 
 		return true;
 	}
+
+	public function delete($id = null){
+
+		if(!isset($this->dados->id)) $this->find($id);
+
+		if($id == null and !isset($this->dados->id)) return false;
+		
+		$this->destroy();
+
+		return true;
+	}
 }

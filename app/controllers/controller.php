@@ -160,6 +160,12 @@ function wpqp_page_quiz_questions() {
         }
         if( isset( $_POST['action'] ) && $_POST['action'] == 'deletequestion' ) {
 
+            $question_id = sanitize_text_field( $_POST['question_id'] );
+
+            $question = new WPQPQuizQuestionModel();
+            $question->delete( $question_id );
+
+            $errors = $question->errors;
         }
         if( isset( $_POST['action'] ) && $_POST['action'] == 'newquestionoption' ) {
                 
@@ -183,6 +189,13 @@ function wpqp_page_quiz_questions() {
 
         }
         if( isset( $_POST['action'] ) && $_POST['action'] == 'deletequestionoption' ) {
+
+            $option_id = sanitize_text_field( $_POST['option_id'] );
+
+            $question_option = new WPQPQuizQuestionOptionModel();
+            $question_option->delete( $option_id );
+
+            $errors = $question_option->errors;
 
         }
     
