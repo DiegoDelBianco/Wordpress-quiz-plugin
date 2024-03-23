@@ -99,11 +99,13 @@ function wpqp_page_edit_html() {
         $layout_html =  $_POST['layout_html'] ;
         $layout_question_html =   $_POST['layout_question_html'] ;
         $layout_question_option_html =   $_POST['layout_question_option_html'] ;
+        $layout_css =  $_POST['layout_css'] ;
+        $layout_js =  $_POST['layout_js'] ;
         
 
         // create the new quiz
         $quiz = new WPQPQuizModel();
-        $quiz->updateHtml( $layout_html, $layout_question_html, $layout_question_option_html, $_GET['id']);
+        $quiz->updateHtml( $layout_html, $layout_question_html, $layout_question_option_html, $layout_css, $layout_js, $_GET['id']);
 
         $errors = $quiz->errors;
 

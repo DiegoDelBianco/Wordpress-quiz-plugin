@@ -34,7 +34,7 @@
                     <th scope="row"><label for="first_name">Template (Você pode editar o código depois)</label></th>
                     <td>
                         <select name="template" type="text" id="template" value="">
-                            <option value="default">Default</option>
+                            <option value="blank">Em branco</option>
                         </select>
                     </td>
                 </tr>

@@ -31,14 +31,6 @@
                     <td><textarea name="description"  id="description" value=""><?php echo $quiz->dados->description?></textarea></td>
                 </tr>
                 <tr class="form-field">
-                    <th scope="row"><label for="first_name">Template (Você pode editar o código depois)</label></th>
-                    <td>
-                        <select name="template" type="text" id="template" value="">
-                            <option value="default">Default</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr class="form-field">
                     <th scope="row"><label for="final_link">Link final </label></th>
                     <td><input name="final_link" type="text" id="final_link" value="<?php echo $quiz->dados->final_link?>"></td>
                 </tr>

@@ -35,5 +35,5 @@ require(WPQP_DIR.'app/controllers/controller.php');         // Definiação das 
 require(WPQP_DIR.'routes/web.php');
 require(WPQP_DIR.'routes/ajax.php');
 
-// shortcode
+add_action( 'wp_enqueue_scripts', 'add_google_fonts' );
 add_shortcode("wpqp", "wpqp_shortcode");
