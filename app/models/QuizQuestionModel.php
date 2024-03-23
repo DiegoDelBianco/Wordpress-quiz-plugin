@@ -31,7 +31,7 @@ class WPQPQuizQuestionModel extends WPQPDefaultModel {
 		return true;
 	}
 
-	public function update($title, $description, $layout_html, $layout_question_html, $final_link, $id = null){
+	public function update($title, $description, $id = null){
 
 		if(!isset($this->dados->id)) $this->find($id);
 
@@ -42,7 +42,7 @@ class WPQPQuizQuestionModel extends WPQPDefaultModel {
             'description' => $description,
         ];
 
-		$validate = new QuizQuestionValidate($data);
+		$validate = new WPQPQuizQuestionValidate($data);
 		$validate->updateValidate();
 
 		if(count($validate->errors) > 0){

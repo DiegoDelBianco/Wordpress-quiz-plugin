@@ -30,7 +30,7 @@ class WPQPQuizQuestionOptionModel extends WPQPDefaultModel {
 		return true;
 	}
 
-	public function update($title){
+	public function update($title, $id = null){
 
 		if(!isset($this->dados->id)) $this->find($id);
 

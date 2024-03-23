@@ -48,8 +48,21 @@
                     <h4>Opção: <?php echo $option->dados->title ?> <a onClick="jQuery('#editoption<?php echo $option->dados->id; ?>').removeClass('d-none'); jQuery(this).addClass('d-none')" class="page-title-action">Editar</a></h4>
                     <div style="max-width:700px">
                         <form method="post" name="editoption<?php echo $option->dados->id; ?>" id="editoption<?php echo $option->dados->id; ?>" class="validate d-none" novalidate="novalidate">
-                            <input name="action" type="hidden" value="updateoption">
+                            <input name="action" type="hidden" value="updatequestionoption">
                             <input name="option_id" type="hidden" value="<?php echo $option->dados->id; ?>">
+                            <table class="form-table" role="presentation">
+                                <tbody>
+                                    <tr class="form-field form-required">
+                                        <th scope="row">
+                                            <label for="edit_option_title<?php echo $option->dados->id; ?>">Titulo <span class="description">(Obrigatório)</span></label>
+                                        </th>
+                                        <td>
+                                            <input name="title" type="text" id="edit_option_title<?php echo $option->dados->id; ?>" value="<?php echo $option->dados->title ?>">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="submit"><input type="submit" class="button button-primary" value="Salvar"></p>
                         </form>
                     </div>
                 </div>
