@@ -2,7 +2,7 @@
 /*
  * Plugin Name:       Wordpress quiz plugin
  * Description:       Crie seus próprios quiz.
- * Version:           0.1.0
+ * Version:           0.1.2
  * Requires at least: 5.2
  * Requires PHP:      8.1
  * Author:            Diego Del Bianco
@@ -37,3 +37,6 @@ require(WPQP_DIR.'routes/ajax.php');
 
 add_action( 'wp_enqueue_scripts', 'wpqp_add_google_fonts' );
 add_shortcode("wpqp", "wpqp_shortcode");
+
+add_filter( 'theme_page_templates', 'wpqp_blank_template' );
+add_action( 'template_redirect', 'wpqp_blank_template_redirect' );

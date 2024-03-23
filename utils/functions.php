@@ -112,3 +112,14 @@ function wpqp_getTemplateCode ($template) {
 
     return $template_code;
 }
+function wpqp_blank_template( $templates ) {
+    $templates['WPQPBlank.php'] = 'WPQP Blank Template';
+    return $templates;
+}
+
+function wpqp_blank_template_redirect() {
+    if ( is_page_template( 'WPQPBlank.php' ) ) {
+        include( WPQP_DIR . 'views/pages/blank.php');
+        exit;
+    }
+}
