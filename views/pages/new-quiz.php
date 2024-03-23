@@ -34,7 +34,9 @@
                     <th scope="row"><label for="first_name">Template (Você pode editar o código depois)</label></th>
                     <td>
                         <select name="template" type="text" id="template" value="">
-                            <option value="blank">Em branco</option>
+                            <?php foreach(wpqp_get_templates_list() as $key => $value): ?>
+                                <option value="<?php echo $value; ?>"><?php echo $value; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </td>
                 </tr>

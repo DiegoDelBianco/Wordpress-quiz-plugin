@@ -8,13 +8,16 @@ class WPQPQuizModel extends WPQPDefaultModel {
 
 	public $table = WPQP_PREFIX.'quiz';
 
-	public function store($title, $description, $layout_html, $layout_question_html, $final_link){
+	public function store($title, $description, $layout_html, $layout_question_html, $layout_question_option_html, $layout_css, $layout_js, $final_link){
 
 		$data = [
             'title' => $title,
             'description' => $description,
             'layout_html' => $layout_html,
             'layout_question_html' => $layout_question_html,
+			'layout_question_option_html' => $layout_question_option_html,
+			'layout_css' => $layout_css,
+			'layout_js' => $layout_js,
             'final_link' => $final_link
         ];
 

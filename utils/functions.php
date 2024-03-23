@@ -89,6 +89,26 @@ function wpqp_shortcode($atts = array(), $content = null){
     return $return;
 }
 
-function add_google_fonts() {
+function wpqp_add_google_fonts() {
     wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap', false );   
+}
+
+function wpqp_get_templates_list() {
+    // get a lista of folders in WPQP_DIR.'views/templates'
+    $templates = scandir(WPQP_DIR.'views/templates');
+    $templates = array_diff($templates, array('..', '.'));
+    return $templates;
+}
+
+function wpqp_getTemplateCode ($template) {
+    
+    $template_code = [];
+
+    $template_code['layout_html'] = file_get_contents(WPQP_DIR.'views/templates/'.$template.'/quiz.html');
+    $template_code['layout_question_html'] = file_get_contents(WPQP_DIR.'views/templates/'.$template.'/question.html');
+    $template_code['layout_question_option_html'] = file_get_contents(WPQP_DIR.'views/templates/'.$template.'/option.html');
+    $template_code['layout_css'] = file_get_contents(WPQP_DIR.'views/templates/'.$template.'/style.css');
+    $template_code['layout_js'] = file_get_contents(WPQP_DIR.'views/templates/'.$template.'/script.js');
+
+    return $template_code;
 }

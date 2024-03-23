@@ -20,17 +20,22 @@ function wpqp_page_new_quiz() {
 
     if( isset( $_POST['action'] ) && $_POST['action'] == 'createquiz' ) {
         
+        $template_code = wpqp_getTemplateCode($_POST['template']);
+
         // sanitize the data
         $title = sanitize_text_field( $_POST['quiz_title'] );
         $description = sanitize_text_field( $_POST['description'] );
-        $layout_html = ""; // sanitize_text_field( $_POST['layout_html'] );
-        $layout_question_html = ""; // sanitize_text_field( $_POST['layout_question_html'] );
+        $layout_html = $template_code['layout_html'];
+        $layout_question_html = $template_code['layout_question_html'];
+        $layout_question_option_html = $template_code['layout_question_option_html'];
+        $layout_css = $template_code['layout_css'];
+        $layout_js = $template_code['layout_js'];
         $final_link = sanitize_text_field( $_POST['final_link'] );
         
 
         // create the new quiz
         $quiz = new WPQPQuizModel();
-        $quiz->store( $title, $description, $layout_html, $layout_question_html, $final_link );
+        $quiz->store( $title, $description, $layout_html, $layout_question_html, $layout_question_option_html, $layout_css, $layout_js, $final_link );
 
         $errors = $quiz->errors;
 

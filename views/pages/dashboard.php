@@ -24,6 +24,9 @@
                 </th>	
                 <th scope="col" id="name" class="manage-column column-name">
                     Description
+                </th>
+                <th scope="col" id="name" class="manage-column column-name">
+                    Shortcode
                 </th>	
             </tr>
         </thead>
@@ -45,6 +48,7 @@
                     </div>
                 </td>
                 <td class="name column-name"><?php echo $quiz->description; ?></td>
+                <td class="name column-name">[wpqp id='<?php echo $quiz->id; ?>']</td>
             </tr>
             <?php } ?>
         </tbody>

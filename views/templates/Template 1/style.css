@@ -1,0 +1,149 @@
+body{
+    background: rgb(93,5,90);
+    background: linear-gradient(90deg, rgba(93,5,90,1) 0%, rgba(168,11,162,1) 67%);
+}
+
+#wrap-quiz {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0px;
+    /* background-color: #f9f9f9; */
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+#wrap-quiz-padding{
+    padding: 20px;
+}
+
+#quiz-top {
+    margin-bottom: 20px;
+}
+
+#quiz-title {
+    margin-bottom: 10px;
+    text-align: center;
+}
+#quiz-title h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: #fff;
+    font-weight: 600;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#quiz-description {
+    background-color: rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin: auto;
+    color: white;
+    /* padding: 1px; */
+    border-radius: 4px;
+}
+
+#quiz-description p{
+    text-align: center;
+    font-size: 25px;
+    padding: 4px;
+    font-family: 'Montserrat';
+}
+
+#quiz-process-bar{
+
+    width: 100%;
+    max-width: 1000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    margin-bottom: 20px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#quiz-process-bar div{
+    width: calc(100% / [questions_count]);
+    height: 10px;
+    background-color: #007bff;
+}
+
+#quiz-questions {
+    /*border: 1px solid rgba(255, 255, 255, 0.3);*/
+    border-radius: 6px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.question {
+    margin-bottom: 20px;
+    display: none;
+}
+
+.question.show {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.question-title {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.question-title h3{
+    color: white;
+    text-align: center;
+    display: inline-block;
+    margin: 0;
+    padding: 0px 28px;
+    border-radius: 10px;
+    padding-top: 14px;
+    font-family: 'Montserrat';
+}
+
+.question-description {
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 22px;
+}
+.question-description p{
+    margin: 5px
+}
+
+.question-options {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.option {
+    margin-bottom: 10px;
+}
+
+.option label {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    background: #fff;
+    color: #333;
+    margin: auto;
+    text-align: center;
+    padding: 7px;
+    border-radius: 7px;
+    font-size: 19px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    cursor: pointer;
+}
+
+.option label:hover {
+    background-color: #bb04b3;
+    color: white;
+}
+
+.option input {
+    display:none;
+}
