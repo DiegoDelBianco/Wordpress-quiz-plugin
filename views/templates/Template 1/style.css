@@ -1,6 +1,6 @@
 body{
-    background: rgb(93,5,90);
-    background: linear-gradient(90deg, rgba(93,5,90,1) 0%, rgba(168,11,162,1) 67%);
+    background: rgb(91,55,100);
+    background: linear-gradient(90deg, rgba(91,55,100,1) 0%, rgba(132,57,150,1) 67%);
 }
 
 #wrap-quiz {
@@ -146,4 +146,20 @@ body{
 
 .option input {
     display:none;
+}
+
+/* mobile */
+@media (max-width: 600px) {
+    #quiz-title h1{
+        font-size: 22px;
+    }
+    #quiz-description p{
+        font-size: 18px;
+    }
+    .question-title h3{
+        font-size: 28px;
+    }
+    .question-description{
+        font-size: 14px;
+    }
 }

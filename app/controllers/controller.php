@@ -66,15 +66,15 @@ function wpqp_page_edit_quiz() {
             // sanitize the data
             $title = sanitize_text_field( $_POST['quiz_title'] );
             $description = sanitize_text_field( $_POST['description'] );
-            $layout_html = ""; // sanitize_text_field( $_POST['layout_html'] );
-            $layout_question_html = ""; // sanitize_text_field( $_POST['layout_question_html'] );
+            //$layout_html = ""; // sanitize_text_field( $_POST['layout_html'] );
+            //$layout_question_html = ""; // sanitize_text_field( $_POST['layout_question_html'] );
             $final_link = sanitize_text_field( $_POST['final_link'] );
             $id = sanitize_text_field( $_GET['id'] );
             
     
             // create the new quiz
             $quiz = new WPQPQuizModel();
-            $quiz->update( $title, $description, $layout_html, $layout_question_html, $final_link, $id );
+            $quiz->update( $title, $description, $final_link, $id );
     
             $errors = $quiz->errors;
     

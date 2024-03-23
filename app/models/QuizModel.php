@@ -36,7 +36,7 @@ class WPQPQuizModel extends WPQPDefaultModel {
 		return true;
 	}
 
-	public function update($title, $description, $layout_html, $layout_question_html, $final_link, $id = null){
+	public function update($title, $description, $final_link, $id = null){
 
 		if(!isset($this->dados->id)) $this->find($id);
 
@@ -45,8 +45,6 @@ class WPQPQuizModel extends WPQPDefaultModel {
 		$data = [
             'title' => $title,
             'description' => $description,
-            'layout_html' => $layout_html,
-            'layout_question_html' => $layout_question_html,
             'final_link' => $final_link
         ];
 
